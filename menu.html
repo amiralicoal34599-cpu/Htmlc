@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منوی ویژه</title>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body {
+            background: #0f172a;
+            color: #ffffff;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 350px;
+            padding: 20px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .btn {
+            background: linear-gradient(135deg, #6366f1, #a855f7);
+            border: none;
+            color: white;
+            padding: 14px;
+            width: 100%;
+            max-width: 350px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>🚀 منوی ویژه ربات</h2>
+        <p id="user-info">در حال دریافت اطلاعات کاربر...</p>
+    </div>
+
+    <button class="btn" onclick="showAlert()">🌟 تلگرام پرمیوم رایگان 🌟</button>
+
+    <script>
+        const tg = window.Telegram.WebApp;
+        tg.expand(); // تمام صفحه کردن تب
+
+        const user = tg.initDataUnsafe?.user;
+        if (user) {
+            document.getElementById('user-info').innerText = `سلام ${user.first_name} خوش آمدی!`;
+        }
+
+        function showAlert() {
+            tg.showAlert("📌 تلگرام پرمیوم رایگان فعلاً غیرفعال می‌باشد!");
+        }
+    </script>
+</body>
+</html>
